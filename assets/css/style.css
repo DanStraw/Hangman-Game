@@ -1,0 +1,37 @@
+body {
+    background-image: url("../images/starscape.jpg")
+}
+
+.container {
+    margin-top: 60px;
+    font-family: 'Pathway Gothic One';
+    height: 600px;
+    background-color: #0f0e0e;
+    border-style: dashed;
+    border-color: #feda4a;
+    border-width: 8px;
+}
+
+h1 {
+    position: relative;
+    bottom: 40px;
+    padding-bottom: 10px;
+    color: #feda4a;
+    text-align: center;
+    border-bottom-color: #feda4a;
+    border-bottom-style: inherit;
+    border-bottom-width: 2px;
+}
+
+/* .main {
+    height: 400px;
+} */
+
+.console {
+    border-right-color: #feda4a;
+    border-right-style: dashed;
+    border-right-width: 2px;
+    font-family: 'Pathway Gothic One';
+    color: #feda4a;
+
+}
