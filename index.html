@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="assets/javascript/game.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,8 +9,11 @@
     <title>Star Wars Hangman</title>
 </head>
 <body>
-    <div class="container jumbotron align-center col-6">
-        <h1>STAR WARS HANGMAN</h1>
+    <div class="container  align-center col-8">
+        <div class="jumbotron">
+            <h1>STAR WARS HANGMAN</h1>
+        </div> 
+
         <div class="row main">
             <div class="console col-md-7">
                 <p>Choose a letter to begin</p>
@@ -21,14 +23,70 @@
                 <p>Your incorrect guesses will also be displayed below</p>
             </div>
 
-            
-            
+        
+        
             <div class="display col-md-5">
 
             </div>
         </div>
 
+        <br><br>
+
+        <div class = "row col-md-12">
+            <div class="panel panel-default col-md-3">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Word to Guess</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <!-- This h3 section called wordblanks is what we'll be replacing with letters as the user guesses.
+                                Pay particular attention to the id called ***wordblanks***. We'll be referencing this in the JavaScript. -->
+                    <h3 id="word-blanks">_ _ _ _ _ _ _ _ _ </h3>
+                </div>
+            </div>
+                
+                        <!-- Second Panel: Holds the list of Wrong User Guesses. -->
+            <div class="panel panel-default col-md-3">
+                <div class="panel-body">
+                    <!-- This span section called userGuesses is where we will be dumping the wrong guesses.
+                                Pay particular attention to the id called ****userGuesses***. We'll be referencing this in the JavaScript. -->
+                    <strong>Wrong Guesses: </strong> <span id="wrong-guesses"></span>
+                </div>
+            </div>
+                
+                        <!-- Third Panel: Holds the Number of Wrong Guesses -->
+             <div class="panel panel-default col-md-2">
+                <div class="panel-body">
+                
+                    <!-- This span called guessesLeft is where we will be dumping the number of guesses left.
+                                Pay attention to the id called ****guessesLeft****. We'll be referencing this in the JavaScript. -->
+                    <strong>Guesses Left: </strong> <span id="guesses-left">9</span>
+                </div>
+            </div>
+                
+            <!-- Fourth Panel: Holds the number of Wins. -->
+            <div class="panel panel-default col-md-2">
+                <div class="panel-body">
+                
+                    <!-- This span called winCounter is where we'll be dumping the number of wins.
+                                Pay attention to the id called ****winCounter***. We'll be referencing this in the JavaScript. -->
+                    <strong>Wins: </strong> <span id="win-counter">0</span>
+                </div>
+            </div>
+                
+            <!-- Fifth Panel: Holds the number of Losses. -->
+            <div class="panel panel-default col-md-2">
+                <div class="panel-body">
+                
+                    <!-- This span called winCounter is where we'll be dumping the number of wins.
+                                Pay attention to the id called ****winCounter***. We'll be referencing this in the JavaScript. -->
+                    <strong>Losses: </strong> <span id="loss-counter">0</span>
+                </div>
+            </div>
+        </div>
+        
+
 
     </div>
 </body>
+<script src="assets/javascript/game.js"></script>
 </html>

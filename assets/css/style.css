@@ -12,10 +12,12 @@ body {
     border-width: 8px;
 }
 
+.jumbotron {
+    background-color: #0f0e0e;
+}
+
 h1 {
-    position: relative;
-    bottom: 40px;
-    padding-bottom: 10px;
+    /*bottom: 40px;*/
     color: #feda4a;
     text-align: center;
     border-bottom-color: #feda4a;
@@ -34,4 +36,8 @@ h1 {
     font-family: 'Pathway Gothic One';
     color: #feda4a;
 
+}
+
+.panel {
+    color: #feda4a;
 }
