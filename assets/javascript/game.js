@@ -1,10 +1,73 @@
-//create a variable called characters. Will be an array of of character names. 
 
-//create variable computerChoice. This will randomly select one of the values from the characters var (Math.random)
+window.onload = function() {
+  
+    //create a variable called characters. Will be an array of of character names. 
+    var words = ["Luke Skywalker", "Han Solo", "Leia Organa", "Chewbacca", "C Three P O", "Darth Vader", "Emperor Palpatine", "Bobba Fett", "Lando Calrissian"];
+    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 8;
+    var wordBlank = [];
+    var wrongGuesses = [];
+    var blanks = [];
+    var underScores = [];
+    var spaces = [];
+    var computerChoice;
+    //create variable computerChoice. This will randomly select one of the values from the characters var (Math.random)
+    //computerChoice will occur on page load and when user hits enter after each game is completed
+    function newWord() {
+        computerChoice = words[Math.floor(Math.random() * words.length)];
+        console.log(computerChoice);
+        for (let i = 0; i < computerChoice.length; i++) {
+            if (computerChoice[i] === " ") {
+                underScores.push("   ");
+                
+                console.log("space");
+            } else {
+                underScores.push('_');
+ 
+                
+            }
+        }
+        document.getElementById("word-blanks").textContent = underScores.join(" ");
+    }
+    
+    
+    document.onkeyup = function(event) {
+        
 
-//have word blank on game board populate with number of underscores equal to the number of letters in the computerChoice word
+        var userChoice = event.key;
+        var guessesLeft = 8;
+        for (guessesLeft; guessesLeft > 0; guessesLeft--) {
+            console.log(userChoice);
+                
+            if (computerChoice.indexOf(userChoice) === -1) {
+                guessesLeft = guessesLeft--;
+                
+                //wrongGuesses.push(userChoice);
+                document.getElementById("guesses-left").textContent = guessesLeft;
+                console.log(guessesLeft);
+            }
+        }     
+    }
 
-//computerChoice will occur on page load and when user hits enter after each game is completed
+       
+    //have word blank on game board populate with number of underscores equal to the number of letters in the computerChoice word   
+        
+    
+    
+    
+    newWord();
+
+    
+
+    
+        
+
+}
+
+
+
 
 //use onKeyUp to determine userChoice
 

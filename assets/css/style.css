@@ -5,7 +5,7 @@ body {
 .container {
     margin-top: 60px;
     font-family: 'Pathway Gothic One';
-    height: 600px;
+    height: 650px;
     background-color: #0f0e0e;
     border-style: dashed;
     border-color: #feda4a;
@@ -40,4 +40,15 @@ h1 {
 
 .panel {
     color: #feda4a;
+}
+
+.word {
+    text-align: center;
+}
+
+.info {
+    border-color: #feda4a;
+    border-style: dashed;
+    border-width: 1px;
+    height: 250px;
 }

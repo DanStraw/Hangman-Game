@@ -9,23 +9,36 @@
     <title>Star Wars Hangman</title>
 </head>
 <body>
-    <div class="container  align-center col-8">
+    <div class="container align-center col-9">
         <div class="jumbotron">
             <h1>STAR WARS HANGMAN</h1>
         </div> 
 
         <div class="row main">
-            <div class="console col-md-7">
-                <p>Choose a letter to begin</p>
-                <p>You can have up to 7 incorrect.</p>
-                <p>On the 8th incorrect guees, the Death Star will destroy your planet!</p>
-                <p>You will not be penalized if you guess the same letter more than once.</p>
-                <p>Your incorrect guesses will also be displayed below</p>
+            <div class="console col-md-4">
+                <ul>
+                    <li>Choose a letter to begin</li>
+                    <li>You can have up to 7 incorrect.</li>
+                    <li>On the 8th incorrect guees, you will be frozen in carbonite</li>
+                    <li>You will not be penalized if you guess the same letter more than once.</li>
+                    <li>Your incorrect guesses will also be displayed below</li>
+                </ul>
             </div>
-
+            
+            <div class="panel panel-default col-md-4 word">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Words to Guess</strong></h3>
+                
+                    <div class="panel-body">
+                    <!-- This h3 section called wordblanks is what we'll be replacing with letters as the user guesses.
+                                Pay particular attention to the id called ***wordblanks***. We'll be referencing this in the JavaScript. -->
+                        <h3 id="word-blanks">_ _ _ _ _ _ _ _ _ </h3>
+                    </div>
+                </div>
+            </div>
         
         
-            <div class="display col-md-5">
+            <div class="display col-md-4 info">
 
             </div>
         </div>
@@ -33,16 +46,7 @@
         <br><br>
 
         <div class = "row col-md-12">
-            <div class="panel panel-default col-md-3">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Word to Guess</strong></h3>
-                </div>
-                <div class="panel-body">
-                    <!-- This h3 section called wordblanks is what we'll be replacing with letters as the user guesses.
-                                Pay particular attention to the id called ***wordblanks***. We'll be referencing this in the JavaScript. -->
-                    <h3 id="word-blanks">_ _ _ _ _ _ _ _ _ </h3>
-                </div>
-            </div>
+            
                 
                         <!-- Second Panel: Holds the list of Wrong User Guesses. -->
             <div class="panel panel-default col-md-3">
@@ -54,17 +58,17 @@
             </div>
                 
                         <!-- Third Panel: Holds the Number of Wrong Guesses -->
-             <div class="panel panel-default col-md-2">
+             <div class="panel panel-default col-md-3">
                 <div class="panel-body">
                 
                     <!-- This span called guessesLeft is where we will be dumping the number of guesses left.
                                 Pay attention to the id called ****guessesLeft****. We'll be referencing this in the JavaScript. -->
-                    <strong>Guesses Left: </strong> <span id="guesses-left">9</span>
+                    <strong>Incorrect Guesses Left: </strong> <span id="guesses-left">8</span>
                 </div>
             </div>
                 
             <!-- Fourth Panel: Holds the number of Wins. -->
-            <div class="panel panel-default col-md-2">
+            <div class="panel panel-default col-md-3">
                 <div class="panel-body">
                 
                     <!-- This span called winCounter is where we'll be dumping the number of wins.
@@ -74,7 +78,7 @@
             </div>
                 
             <!-- Fifth Panel: Holds the number of Losses. -->
-            <div class="panel panel-default col-md-2">
+            <div class="panel panel-default col-md-3">
                 <div class="panel-body">
                 
                     <!-- This span called winCounter is where we'll be dumping the number of wins.
