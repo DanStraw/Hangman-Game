@@ -2,11 +2,11 @@
 window.onload = function() {
   
     //create a variable called characters. Will be an array of of character names. 
-    var words = ["Luke Skywalker", "Han Solo", "Leia Organa", "Chewbacca", "C Three P O", "Darth Vader", "Emperor Palpatine", "Bobba Fett", "Lando Calrissian"];
+    var words = ["Sun", "Earth", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"];
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var wins = 0;
     var losses = 0;
-    var guessesLeft = 8;
+    let guessesLeft = 8;
     var wordBlank = [];
     var wrongGuesses = [];
     var blanks = [];
@@ -19,37 +19,29 @@ window.onload = function() {
         computerChoice = words[Math.floor(Math.random() * words.length)];
         console.log(computerChoice);
         for (let i = 0; i < computerChoice.length; i++) {
-            if (computerChoice[i] === " ") {
-                underScores.push("   ");
-                
-                console.log("space");
-            } else {
-                underScores.push('_');
- 
-                
-            }
-        }
-        document.getElementById("word-blanks").textContent = underScores.join(" ");
+                underScores.push('_');         
+        }   
+        document.getElementById("word-blanks").textContent = underScores.join(" "); 
     }
+    newWord();
     
-    
+       
     document.onkeyup = function(event) {
         
 
         var userChoice = event.key;
-        var guessesLeft = 8;
-        for (guessesLeft; guessesLeft > 0; guessesLeft--) {
-            console.log(userChoice);
-                
-            if (computerChoice.indexOf(userChoice) === -1) {
-                guessesLeft = guessesLeft--;
-                
-                //wrongGuesses.push(userChoice);
-                document.getElementById("guesses-left").textContent = guessesLeft;
-                console.log(guessesLeft);
-            }
-        }     
+              
+        if ((computerChoice.indexOf(userChoice) === -1) && (wrongGuesses.indexOf(userChoice) === -1)) {
+            guessesLeft--;
+            console.log(guessesLeft);
+            wrongGuesses.push(userChoice);
+            console.log(wrongGuesses);
+
+        }    
+        document.getElementById("wrong-guesses").textContent = wrongGuesses.join(" ");  
+        document.getElementById("guesses-left") .textcontent = guessesLeft;
     }
+}
 
        
     //have word blank on game board populate with number of underscores equal to the number of letters in the computerChoice word   
@@ -57,14 +49,14 @@ window.onload = function() {
     
     
     
-    newWord();
+    
 
+    
     
 
     
         
 
-}
 
 
 
