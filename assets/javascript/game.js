@@ -79,10 +79,10 @@ window.onload = function() {
             }   
         } else  if ((computerChoiceLower.indexOf(userChoiceLower) === -1) && (wrongGuesses.indexOf(userChoiceLower) === -1) && (alphabet.indexOf(userChoiceLower) > -1)) {
             guessesLeft--;
-            wrongGuesses.push(userChoice);  
-            
+            wrongGuesses.push(userChoice);      
         }
-        function winsLosses() {
+
+        function win() {
             if (correctLetters === blanks) {
                 //alert('you win!');
                 wins++;
@@ -90,7 +90,7 @@ window.onload = function() {
                 reset();
             }
         }
-        winsLosses();
+        win();
 
         document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
         document.getElementById("guesses-left").innerHTML = guessesLeft;
