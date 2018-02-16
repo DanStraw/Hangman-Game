@@ -94,7 +94,7 @@ window.onload = function() {
             if (guessesLeft <= 0) {
                 losses++;
                 document.getElementById('loss-counter').innerHTML = losses;
-                alert('Oh no, you lost!');
+                alert('Oh no, you lost! The correct answer was ' + computerChoice);
                 
                 function replay() {
                     var again = confirm('Do you want to play again?');
