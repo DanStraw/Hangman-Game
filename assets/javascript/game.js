@@ -4,7 +4,8 @@ window.onload = function() {
     var words = ["Sun", "Earth", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", 'Ganymede', 'Phobos',
         'Deimos', 'Ceres', 'Haumea', 'Makemake', 'Eris', 'Callisto', 'Europa', 'Hegemone', 'Io', 'Thebe', 'Atlas', 'Calypso', 'Hyperion', 'Janus',
         'Pandora', 'Phoebe', 'Titan', 'Ariel', 'Desdemona', 'Galatea', 'Triton', 'Hydra', 'Styx'];
-    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
+        'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var wins = 0;
     var losses = 0;
     let guessesLeft = 8;
@@ -24,7 +25,7 @@ window.onload = function() {
         for (let i = 0; i < computerChoiceLower.length; i++) {
                 wordFill.push('_'); 
                 document.getElementById("word-blanks").innerHTML = wordFill.join(" ");
-                //have word blank on game board populate with number of wordFill equal to the number of letters in the computerChoice word                   
+    //have word blank on game board populate with number of wordFill equal to the number of letters in the computerChoice word                   
         }       
     }
     newWord();
@@ -46,15 +47,17 @@ window.onload = function() {
     }
 
     //use onKeyUp to determine userChoice  
-    document.onkeyup = function(event) {
+    document.onkeydown = function(event) {
         var userChoice = event.key;
-          
-        var userChoiceLower = userChoice.toLowerCase();
-        if ((computerChoiceLower.indexOf(userChoiceLower) > -1) && (rightGuesses.indexOf(userChoiceLower) < 0)) {
+
+        
+        var userChoiceLower = userChoice.toLowerCase(); 
+        // if user choice (in lower case) is in the array of of the letters in word to guess, and it is not in the array of already correctly guessed letters. then:
+        if ((computerLetters.indexOf(userChoiceLower) > -1) && (rightGuesses.indexOf(userChoiceLower) === -1)) {
         
             for (let i = 0; i < computerChoice.length; i++) {
                 
-                if(computerLetters[i] === userChoice) {
+                if(computerLetters[i] === userChoiceLower) {
                     correctLetters++;
                     rightGuesses.push(userChoiceLower);
                     wordFill[i] = userChoiceLower;
@@ -65,7 +68,7 @@ window.onload = function() {
 
         //compare userChoice to the letters in computerChoice. If there is no match, add 1 to incorrect guesses.
         // Do not count against if key hit is not a letter in the alphabet or has already been added to the wrong guess array.
-        } else  if ((alphabet.indexOf(userChoiceLower) > -1) && (wrongGuesses.indexOf(userChoiceLower) < 0)) {
+        } else  if ((alphabet.indexOf(userChoiceLower) > -1) && (wrongGuesses.indexOf(userChoiceLower) < 0) && (rightGuesses.indexOf(userChoiceLower) === -1)) {
             guessesLeft--;
             wrongGuesses.push(userChoiceLower);  
             document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
